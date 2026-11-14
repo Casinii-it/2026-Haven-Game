@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://bos2qgk5ghyru"]
+[gd_scene load_steps=4 format=3 uid="uid://bos2qgk5ghyru"]
+
+[ext_resource type="PackedScene" uid="uid://uphkh383v103" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://08p7jlkghp7" path="res://icon.svg" id="2_0wfyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="GrapplePoints" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrapplePoints"]
+position = Vector2(504, 277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrapplePoints/StaticBody2D"]
+scale = Vector2(3.4800005, 3.4800005)
+shape = SubResource("CircleShape2D_sugp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="GrapplePoints/StaticBody2D"]
+scale = Vector2(0.48430443, 0.48454222)
+texture = ExtResource("2_0wfyh")
